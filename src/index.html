@@ -10,14 +10,27 @@
 </head>
 <body class="bg-gradient-to-r from-indigo-500 to-pink-500">
 
-    <header class="sombra w-full h-20 flex justify-center items-center bg-slate-300">
-        <h1 class="font-mono text-2xl">Prueba Tailwind</h1>
+    <header class="bg-gray-900 p-6">
+        <nav class="flex items-center justify-between">
+            <h1 class="text-white font-medium">Prueba de Tailwind</h1>
+            <ul class="flex items-center">
+                <li><a href="#" class="text-white hover:text-gray-400 mr-4">Inicio</a></li>
+                <li><a href="#" class="text-white hover:text-gray-400 mr-4">Acerca de</a></li>
+                <li><a href="#" class="text-white hover:text-gray-400">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
     <main class="flex flex-col items-center">
         <section class="w-full h-60 flex justify-center mt-24">
-            <div class="img-container-1 relative ml-5 mr-5 sombra h-32 w-32 m-2 img-container rounded-lg bg-slate-200"></div>
-            <div class="img-container relative ml-5 mr-5 sombra h-32 w-32 m-2 img-container rounded-lg bg-slate-200"></div>
-            <div class="img-container-3 relative ml-5 mr-5 sombra h-32 w-32 m-2 img-container rounded-lg bg-slate-200"></div>
+            <div class="img-container-1 relative ml-5 mr-5 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
+                <img src="silueta.png" class="opacity-40 img-incognito">
+            </div>
+            <div class="img-container-2 relative ml-5 mr-5 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
+                <img src="silueta.png" class="opacity-40 img-incognito">
+            </div>
+            <div class="img-container-3 relative ml-5 mr-5 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
+                <img src="silueta.png" class="opacity-40 img-incognito">
+            </div>  
         </section>
         <section class="w-72 h-80 flex flex-wrap justify-center">
             <div class="relative m-5">

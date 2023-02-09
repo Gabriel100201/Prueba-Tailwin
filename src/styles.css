@@ -3,3 +3,16 @@
     -moz-box-shadow: 11px 11px 0px 0px rgba(66,66,66,1);
     box-shadow: 11px 11px 0px 0px rgba(66,66,66,1);
 }
+
+.animation-spin{
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

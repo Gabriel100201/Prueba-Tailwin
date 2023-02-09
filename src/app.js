@@ -12,9 +12,12 @@ const valorantInfo = () =>{
 }
 const colocarImagen = (url, ciclo) => {
     const containers = document.querySelectorAll(".img-container");
+    const loader = document.querySelector(".loader");
+    containers[ciclo].removeChild(loader);
     containers[ciclo].style = `background-image: url("${url}"); background-size: 100% 100%;`;
     console.log(url, " ",ciclo);
     animarImagenes();
+
 }
 const recuperarImagen = (agente, ciclo) => {
     valorantInfo().then((data) => {
@@ -43,6 +46,19 @@ const capturarPlayer = () => {
         }
     })    
 }
+const loader = () => {
+    const container = document.querySelectorAll(".img-container");
+    container.forEach((contenedor) => {
+        contenedor.classList.add("items-center");
+    })
+    const loader = `<div class="loader flex justify-center items-center h-64">
+    <div class="w-16 h-16 rounded-full border-t-4 border-slate-900 border-opacity-25 animation-spin duration-500"></div>
+    </div>`;
+    container.forEach((contenedor) => {
+        contenedor.innerHTML = loader;
+    })
+}
 
 const inputButton = document.querySelector("#input-button");
 inputButton.addEventListener("click", capturarPlayer);
+inputButton.addEventListener("click", loader);
