@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../dist/output.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <title>Documento</title>
 </head>
-<body class="bg-gradient-to-r from-indigo-500 to-pink-500">
+<body class="bg-gradient-to-r from-indigo-500 to-pink-500 h-full min-h-screen">
 
     <header class="bg-gray-900 p-6">
         <nav class="flex items-center justify-between">
@@ -21,6 +23,20 @@
         </nav>
     </header>
     <main class="flex flex-col items-center">
+        <section class="w-72 h-80 flex flex-wrap justify-center mt-20">
+            <div class="relative m-5">
+                <span class="animable-span transition-transform w-40 h-10 absolute translate-x-1.5 translate-y-1.5 bg-gray-300 z-0"></span>
+                <input placeholder="Nombre" id="input-nombre" class="animable-input text-center w-40 h-10 relative border-2 border-current px-8 py-3 text-sm font-bold text-black bg-inherit z-10" type="text">
+            </div>
+            <div class="relative m-5">
+                <span class="animable-span transition-transform w-40 h-10 absolute translate-x-1.5 translate-y-1.5 bg-gray-300 z-0"></span>
+                <input placeholder="Id (Sin el #)" id="input-tag" class="animable-input text-center w-40 h-10 relative border-2 border-current px-8 py-3 text-sm font-bold text-black bg-inherit z-10" type="text">
+            </div>
+            <button id="input-button" class="w-30 group relative inline-block focus:outline-none focus:ring h-12">
+                <span class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-slate-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                <span class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75">Buscar</span>
+            </button>
+        </section>
         <section class="w-full h-60 flex justify-center mt-24">
             <div class="img-container-1 relative ml-5 mr-5 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
                 <img src="silueta.png" class="opacity-40 img-incognito">
@@ -30,26 +46,72 @@
             </div>
             <div class="img-container-3 relative ml-5 mr-5 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
                 <img src="silueta.png" class="opacity-40 img-incognito">
+            </div>
+            <div class="img-container-4 relative ml-5 mr-5 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
+                <img src="silueta.png" class="opacity-40 img-incognito">
+            </div>
+            <div class="img-container-5 relative ml-5 mr-5 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
+                <img src="silueta.png" class="opacity-40 img-incognito">
             </div>  
         </section>
-        <section class="w-72 h-80 flex flex-wrap justify-center">
-            <div class="relative m-5">
-                <span class="animable-span transition-transform w-40 h-10 absolute translate-x-1.5 translate-y-1.5 bg-gray-300 z-0"></span>
-                <input id="input-nombre" class="animable-input text-center w-40 h-10 relative border-2 border-current px-8 py-3 text-sm font-bold text-black bg-inherit z-10" type="text">
+        <section class="w-full h-80 flex flex-col justify-center items-center mb-20">
+            <div class="border-2 bg-inherit rounded-sm w-1/2 h-8 flex items-center my-3">
+                <div class="bg-gradient-to-r from-green-700 to-green-400 h-full green"></div>
+                <div class="bg-gradient-to-r from-red-500 to-red-700 h-full red"></div>
             </div>
-            <div class="relative m-5">
-                <span class="animable-span transition-transform w-40 h-10 absolute translate-x-1.5 translate-y-1.5 bg-gray-300 z-0"></span>
-                <input id="input-tag" class="animable-input text-center w-40 h-10 relative border-2 border-current px-8 py-3 text-sm font-bold text-black bg-inherit z-10" type="text">
+            <div class="border-2 bg-inherit rounded-sm w-1/2 h-8 flex items-center my-3">
+                <div class="bg-gradient-to-r from-green-700 to-green-400 h-full green"></div>
+                <div class="bg-gradient-to-r from-red-500 to-red-700 h-full red"></div>
             </div>
-            <button id="input-button" class="w-30 group relative inline-block focus:outline-none focus:ring h-12">
-                <span class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-slate-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"></span>
-                <span class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75">Buscar</span>
-            </button>
+            <div class="border-2 bg-inherit rounded-sm w-1/2 h-8 flex items-center my-3">
+                <div class="bg-gradient-to-r from-green-700 to-green-400 h-full green"></div>
+                <div class="bg-gradient-to-r from-red-500 to-red-700 h-full red"></div>
+            </div>
+            <div class="border-2 bg-inherit rounded-sm w-1/2 h-8 flex items-center my-3">
+                <div class="bg-gradient-to-r from-green-700 to-green-400 h-full green"></div>
+                <div class="bg-gradient-to-r from-red-500 to-red-700 h-full red"></div>
+            </div>
+            <div class="border-2 bg-inherit rounded-sm w-1/2 h-8 flex items-center my-3">
+                <div class="bg-gradient-to-r from-green-700 to-green-400 h-full green"></div>
+                <div class="bg-gradient-to-r from-red-500 to-red-700 h-full red"></div>
+            </div>
         </section>
-    </main>
 
+        <section>
+            <div class="swiper mySwiper mb-20">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide flex justify-center bg-gray-400 rounded-3xl">
+                        <div class="img-container-1 relative ml-5 mr-5 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
+                            <img src="characters/omen.webp" class="img-incognito">
+                        </div>
+                    </div>
+                    <div class="swiper-slide flex justify-center bg-gray-400 rounded-3xl">
+                        <img src="30x30.png" alt="">
+                    </div>
+                    <div class="swiper-slide flex justify-center bg-gray-400 rounded-3xl">
+                        <img src="30x30.png" alt="">
+                    </div>
+                    <div class="swiper-slide flex justify-center bg-gray-400 rounded-3xl">
+                        <img src="30x30.png" alt="">
+                    </div>
+                    <div class="swiper-slide flex justify-center bg-gray-400 rounded-3xl">
+                        <img src="30x30.png" alt="">
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="bg-gray-900 text-white py-6 bottom-0 w-full">
+        <div class="container mx-auto">
+            <p class="text-center">&copy; Gabriel Funes</p>
+        </div>
+    </footer>
 </body>
 <script src="animation.js"></script>
 <script src="app.js" type="module"></script>
 <script src="anime.js" type="module"></script>
-</html>
+<script src="swiper.js"></script>
+</html>     
