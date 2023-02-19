@@ -1,16 +1,20 @@
 .sombra{
-    -webkit-box-shadow: 11px 11px 0px 0px rgba(66,66,66,1);
-    -moz-box-shadow: 11px 11px 0px 0px rgba(66,66,66,1);
-    box-shadow: 11px 11px 0px 0px rgba(66,66,66,1);
+    -webkit-box-shadow: 11px 11px 0px 0px rgba(66,66,66,0.8);
+    -moz-box-shadow: 11px 11px 0px 0px rgba(66,66,66,0.8);
+    box-shadow: 11px 11px 0px 0px rgba(66,66,66,0.8);
 }
 
 .animation-spin{
     animation: spin 1s linear infinite;
 }
-
-.swiper {
-    width: 600px;
-    height: 300px;
+.swiper{
+    height: 500px;
+}
+body{
+    font-family: '8BIT WONDER', sans-serif;
+}
+input{
+    font-family: monospace;
 }
 
 @keyframes spin {
