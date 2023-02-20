@@ -1,7 +1,7 @@
 import { animarBarras } from "./anime.js";
 import { graficarPorc } from "./anime.js";
 import { bajar } from "./anime.js";
-const mmrHistoty = (nombre, tag) => {
+const mmrHistory = (nombre, tag) => {
     return fetch(`https://api.henrikdev.xyz/valorant/v1/mmr-history/na/${nombre}/${tag}`)
     .then((respone) => respone.json())
     .catch((err) => console.log(err));
@@ -43,8 +43,14 @@ const obtenerDanho = (indice, made, received) => {
     graficoDahno(porcMade, porcRecieved, indice);
 }
 const colocarImagen = (agente, ciclo) => {
+    console.log(agente);
     const containers = document.querySelectorAll(".img-container");
-    containers[ciclo].style = `background-image: url("./characters/${agente}.jpg"); background-size: 100% 100%;`;
+    if (agente == "KAY/O"){
+        containers[ciclo].style = `background-image: url("./characters/KAYO.jpg"); background-size: 100% 100%;`;
+    }
+    else{
+        containers[ciclo].style = `background-image: url("./characters/${agente}.jpg"); background-size: 100% 100%;`;
+    }
 }
 const pintarMarcador = (leftNumbers, rightNumbers, result, ciclo) => {
     console.log(result);
@@ -114,7 +120,7 @@ const colocarRango = (nombre, tag, ciclo) => {
     if (ciclo == 4){
         const rang = document.querySelectorAll(".img-rango");
         const rangText = document.querySelectorAll(".rang-text");
-        mmrHistoty(nombre, tag).then((data) => {
+        mmrHistory(nombre, tag).then((data) => {
             data = data.data;
             for (let i = 0; i <= 4; i++){
                 rang[i].setAttribute("src", data[i].images.small);
