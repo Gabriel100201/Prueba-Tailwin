@@ -1,6 +1,7 @@
 import { animarBarras } from "./anime.js";
 import { graficarPorc } from "./anime.js";
 import { bajar } from "./anime.js";
+import { subir } from "./anime.js";
 const mmrHistory = (nombre, tag) => {
     return fetch(`https://api.henrikdev.xyz/valorant/v1/mmr-history/na/${nombre}/${tag}`)
     .then((respone) => respone.json())
@@ -15,6 +16,14 @@ const matchHistory = (nombre, tag) =>{
     return fetch(`https://api.henrikdev.xyz/valorant/v3/matches/na/${nombre}/${tag}?filter=competitive`)
     .then((respone) => respone.json())
     .catch((err) => console.log(err));
+}
+const errorSearch = () => {
+    const loadingText = document.querySelector(".cargando");
+    loadingText.innerText = "Error al encontrar jugador, verifique su nombre e ID.";
+    const loaders = document.querySelectorAll(".loader");
+    loaders.forEach((loader) => {
+        loader.classList.remove("animate-pulse");
+    })
 }
 const graficarPorcentaje = (made, received, indice) => {
     let logEl = document.querySelectorAll('.porcentaje');
@@ -99,11 +108,12 @@ const addMarcador = (equipo, matchInfo, ciclo) => {
 }
 const colocarMapa = (mapa, ciclo) => {
     const imgContainer = document.querySelectorAll(".map-img-container");
+    const mapText = document.querySelectorAll(".map-text");
+    mapText[ciclo].innerText = mapa;
     mapList().then((data) => {
         data = data.data;
         data.forEach((datos) => {
             if (datos.displayName == mapa){
-                console.log("MAPA ENCONTRADO");
                 imgContainer[ciclo].setAttribute("src", datos.splash);
             }
         })
@@ -130,6 +140,11 @@ const colocarRango = (nombre, tag, ciclo) => {
         bajarTelon();
     }
 }
+const colocarKDA = (nombre, ciclo) => {
+    nombre = nombre.stats
+    const KDA = document.querySelectorAll(".KDA");
+    KDA[ciclo].innerText = `${nombre.kills} / ${nombre.deaths} / ${nombre.assists} `
+}
 const capturarPlayer = () => {
     let nombrePlayer = document.querySelector("#input-nombre").value;
     let tagPlayer = document.querySelector("#input-tag").value;
@@ -138,16 +153,22 @@ const capturarPlayer = () => {
     }
     matchHistory(nombrePlayer, tagPlayer).then((data) => {
         data = data.data;
+        if (data == undefined){
+            errorSearch();
+        }
         console.log(data);
+        const matchText = document.querySelectorAll(".match");
         for (let i = 0 ; i < 5 ; i++){
             let ciclo = i;
             colocarMapa(data[i].metadata.map, ciclo);
             colocarRango(nombrePlayer, tagPlayer, ciclo);
+            matchText[ciclo].innerText = `Match: ${ciclo + 1}`;
             for (let k = 0 ; k < 10 ; k++){
                 if (data[i].players.all_players[k].name == nombrePlayer){
-                    colocarNombre(data[i].players.all_players[k].character, ciclo);
                     const danhoHecho = data[i].players.all_players[k].damage_made;
-                    const danhoRecivido = data[i].players.all_players[k].damage_received
+                    const danhoRecivido = data[i].players.all_players[k].damage_received;
+                    colocarKDA(data[i].players.all_players[k], ciclo);
+                    colocarNombre(data[i].players.all_players[k].character, ciclo);
                     obtenerDanho(i, danhoHecho, danhoRecivido);
                     colocarImagen(data[i].players.all_players[k].character, ciclo);
                     const team = data[i].players.all_players[k].team;
@@ -157,19 +178,31 @@ const capturarPlayer = () => {
         }
     })    
 }
-/* const loader = () => {
-    const container = document.querySelectorAll(".img-container");
-    container.forEach((contenedor) => {
-        contenedor.classList.add("items-center");
-    })
-    const loader = `<div class="loader flex justify-center items-center h-64">
-    <div class="w-16 h-16 rounded-full border-t-4 border-slate-900 border-opacity-25 animation-spin duration-500"></div>
-    </div>`;
-    container.forEach((contenedor) => {
-        contenedor.innerHTML = loader;
-    })
-} */
-
+const loader = () => {
+    const loaders = document.querySelectorAll(".loader");
+    const loadingText = document.querySelector(".cargando");
+    loaders.forEach((loader) => {
+        loader.classList.add("animate-pulse");
+    });
+    loadingText.innerText = "Cargando informacion..."
+}
+const scroll = () => {
+    const element = document.querySelector(".cards");
+    element.scrollIntoView({block: "center", behavior: "smooth"});
+}
+const scrollUp = () => {
+    const element = document.querySelector(".searcher");
+    element.scrollIntoView({block: "center", behavior: "smooth"});    
+}
+const reload = () => {
+    subir();
+}
 const inputButton = document.querySelector("#input-button");
+const subirButton = document.querySelector("#subir-button");
 inputButton.addEventListener("click", capturarPlayer);
+inputButton.addEventListener("click", scroll);
+inputButton.addEventListener("click", loader);
+inputButton.addEventListener("click", reload);
+subirButton.addEventListener("click", scrollUp);
+
 /* inputButton.addEventListener("click", loader); */

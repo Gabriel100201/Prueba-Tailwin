@@ -12,55 +12,78 @@
     <title>Documento</title>
 </head>
 
-<body class="h-full min-h-screen bg-gradient-to-r from-indigo-500 to-pink-500">
+<body class="h-full min-h-screen bg-primary">
 
-    <header class="bg-gray-900 p-6">
+    <header class="bg-secondary p-6">
         <nav class="flex items-center justify-between">
-            <h1 class="text-white font-medium">Prueba de Tailwind</h1>
+            <h1 class="text-white text-xl tracking-tight">Tracker 8-bits</h1>
             <ul class="flex items-center">
-                <li><a href="#" class="text-white hover:text-gray-400 mr-4">Inicio</a></li>
-                <li><a href="#" class="text-white hover:text-gray-400 mr-4">Acerca de</a></li>
-                <li><a href="#" class="text-white hover:text-gray-400">Contacto</a></li>
+                <li><a href="#" class="text-secondary-2 hover:text-secondary-hover mr-10 text-xl">Inicio</a></li>
+                <li><a href="#" class="text-secondary-2 hover:text-secondary-hover mr-10 text-xl">Acerca de</a></li>
+                <li><a href="#" class="text-secondary-2 hover:text-secondary-hover text-xl">Contacto</a></li>
             </ul>
         </nav>
     </header>
+
     <main class="flex flex-col items-center">
-        <section class="w-72 h-80 flex flex-wrap justify-center mt-20">
-            <div class="relative m-5">
-                <span class="animable-span transition-transform w-40 h-10 absolute translate-x-1.5 translate-y-1.5 bg-gray-300 z-0"></span>
-                <input placeholder="Nombre" id="input-nombre" class="animable-input text-center w-40 h-10 relative border-2 border-current px-8 py-3 text-sm font-bold text-black bg-inherit z-10" type="text">
+        <!-- INPUT DE NOMBRE Y TAG DEL JUGADOR -->
+        <section class="w-2/3 pt-20 pb-20 h-fit bg-gray-900/10 border-4 sombra-principal border-black rounded-lg flex flex-col justify-center items-center mt-52 mb-52 searcher">
+            <span class="text-2xl">Ingresa tu nombre y tu ID (Sin #)</span>
+            <div class="flex mb-10">
+                <div class="relative m-14">
+                    <span class="animable-span transition-transform w-40 h-10 absolute translate-x-1.5 translate-y-1.5 bg-gray-300 z-0"></span>
+                    <input placeholder="Nombre" id="input-nombre" class="animable-input text-center w-40 h-10 relative border-2 border-current px-8 py-3 text-sm font-bold text-black bg-inherit z-10" type="text">
+                </div>
+                <div class="relative m-14">
+                    <span class="animable-span transition-transform w-40 h-10 absolute translate-x-1.5 translate-y-1.5 bg-gray-300 z-0"></span>
+                    <input placeholder="Id" id="input-tag" class="animable-input text-center w-40 h-10 relative border-2 border-current px-8 py-3 text-sm font-bold text-black bg-inherit z-10" type="text">
+                </div>
             </div>
-            <div class="relative m-5">
-                <span class="animable-span transition-transform w-40 h-10 absolute translate-x-1.5 translate-y-1.5 bg-gray-300 z-0"></span>
-                <input placeholder="Id" id="input-tag" class="animable-input text-center w-40 h-10 relative border-2 border-current px-8 py-3 text-sm font-bold text-black bg-inherit z-10" type="text">
-            </div>
-            <button id="input-button" class="w-30 group relative inline-block focus:outline-none focus:ring h-12">
-                <span class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-slate-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"></span>
-                <span class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75">Buscar</span>
+            <button id="input-button" class="w-30 group relative inline-block focus:outline-none focus:ring h-11">
+                <span class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-slate-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0 h-14"></span>
+                <span class="relative inline-block border-2 border-current px-8 py-3 text-xl font-bold uppercase tracking-widest text-black group-active:text-opacity-75">Buscar</span>
             </button>
         </section>
-
-        <section class="w-full mt-20">
-            <div class="swiper mySwiper mb-20 w-2/3">
-                <div class="bg-stone-300 border-b-8 border-gray-900 absolute w-full h-full z-50 telon"></div>
+        <!-- TARJETAS DE JUGADOR DE LAS ULTIMAS 5 PARTIDAS -->
+        <section class="w-full mt-20 mb-20 cards relative">
+            <button id="subir-button" class="absolute w-10 h-10 bg-black right-32 rounded-full top-1/2 p-2">
+                <img src="Recurso1.svg" alt="">
+            </button>
+            <span class="absolute top-96 right-20 text-lg">Buscar nuevamente</span>
+            <div class="swiper mySwiper mb-20 mt-20 w-2/3 sombra">
+                <div class="bg-secondary-2 absolute w-full h-full flex-col z-50 telon flex justify-center items-center">
+                    <span class="text-4xl leave-text">Tracker 8-bits</span>
+                    <div class="flex items-center justify-center space-x-2 mt-7 leave-text">
+                        <div class="w-5 h-5 dark:bg-secondary loader"></div>
+                        <div class="w-5 h-5 dark:bg-secondary loader"></div>
+                        <div class="w-5 h-5 dark:bg-secondary loader"></div>
+                    </div>
+                    <span class="text-2xl mt-10 cargando leave-text">Esperando a que ingrese nombre y su ID</span>
+                </div>
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide justify-center bg-stone-300 rounded-md px-7 py-3 border-double border-4 border-gray-800">
+                    <div class="swiper-slide justify-center bg-secondary-2 px-7 py-3 border-double border-4 border-gray-800">
+                        <div class="filtro absolute w-full h-full top-0 left-0 z-10"></div>
+                        <span class="absolute bg-black top-0 left-0 text-secondary-2 px-5 z-0 match"></span>
                         <div class="row flex h-1/2 w-full pt-10">
                             <div class="w-1/3 h-full flex flex-col justify-start items-center">
-                                <span class="mb-5 character"></span>
+                                <span class="mb-5 character text-3xl"></span>
                                 <div class="img-container-1 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
                                     <img class="img-incognito">
                                 </div>
                             </div>
                             <div class="w-full flex justify-center items-start">
                                 <div class="w-1/2 flex justify-center flex-col items-center">
-                                    <span class="">Marcador</span>
-                                    <div class="mt-16">
+                                    <span class="text-3xl">Marcador</span>
+                                    <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
                                         <span class="marcador text-3xl"></span><span class="text-3xl"> / </span><span class="marcador-2 text-3xl"></span>
+                                    </div>
+                                    <div class="flex flex-col justify-center items-center mt-7">
+                                        <span class="text-2xl">KDA: </span>
+                                        <span class="KDA text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
                                     </div>
                                 </div>
                                 <div class="w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
-                                    <span class="map-name mb-5">Mapa</span>
+                                    <span class="map-name mb-5 text-3xl map-text">Mapa</span>
                                     <img class="map-img-container w-64 sombra" src="" alt="Imagen del mapa">
                                 </div>
                             </div>
@@ -68,43 +91,51 @@
                         <div class="flex row h-1/2 pt-10">
                             <div class="bg-inherit rounded-sm w-2/3 h-full flex my-3">
                                 <div class="flex flex-col justify-center w-2/5">
-                                    <span class="ml-7 text-xs pb-3">danho hecho: </span>
-                                    <span class="ml-7 text-xs pt-3">danho recivido: </span>
+                                    <span class="ml-7 text-xl pb-3">Danho hecho: </span>
+                                    <span class="ml-7 text-xl pt-3">Danho recivido: </span>
                                     
                                 </div>
                                 <div class="flex w-full flex-col justify-center">
                                     <div class="flex justify-center items-center bg-gradient-to-r h-4 mb-3 from-green-700 to-green-400 w-0 green">
-                                        <span class="porcentaje text-xs text-gray-700"></span>
+                                        <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                     <div class="flex justify-center items-center bg-gradient-to-r h-4 mt-3 from-red-500 to-red-700 w-0 red">
-                                        <span class="porcentaje text-xs text-gray-700"></span>
+                                        <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="w-1/3 h-full flex justify-center items-center flex-col">
-                                <span class="text-sm text-center mb-5">Rango</span>
-                                <img class="img-rango" src="#" alt="">
-                                <span class="rang-text text-sm mt-5"></span>
+                            <div class="mr-5 w-1/3 h-full flex flex-col justify-center items-center">
+                                <span class="text-xl text-center mb-3">Rango</span>
+                                <div class="flex flex-col">
+                                    <img class="img-rango" src="#" alt="">
+                                    <span class="rang-text text-lg mt-1 text-black/20"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide justify-center bg-stone-300 rounded-md px-7 py-3 border-double border-4 border-gray-800">
+                    <div class="swiper-slide justify-center bg-secondary-2 px-7 py-3 border-double border-4 border-gray-800">
+                        <div class="filtro absolute w-full h-full top-0 left-0 z-10"></div>
+                        <span class="absolute bg-black top-0 left-0 text-secondary-2 px-5 z-0 match"></span>
                         <div class="row flex h-1/2 w-full pt-10">
                             <div class="w-1/3 h-full flex flex-col justify-start items-center">
-                                <span class="mb-5 character"></span>
+                                <span class="mb-5 character text-3xl"></span>
                                 <div class="img-container-1 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
                                     <img class="img-incognito">
                                 </div>
                             </div>
                             <div class="w-full flex justify-center items-start">
                                 <div class="w-1/2 flex justify-center flex-col items-center">
-                                    <span class="">Marcador</span>
-                                    <div class="mt-16">
+                                    <span class="text-3xl">Marcador</span>
+                                    <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
                                         <span class="marcador text-3xl"></span><span class="text-3xl"> / </span><span class="marcador-2 text-3xl"></span>
+                                    </div>
+                                    <div class="flex flex-col justify-center items-center mt-7">
+                                        <span class="text-2xl">KDA: </span>
+                                        <span class="KDA text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
                                     </div>
                                 </div>
                                 <div class="w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
-                                    <span class="map-name mb-5">Mapa</span>
+                                    <span class="map-name mb-5 text-3xl map-text">Mapa</span>
                                     <img class="map-img-container w-64 sombra" src="" alt="Imagen del mapa">
                                 </div>
                             </div>
@@ -112,43 +143,51 @@
                         <div class="flex row h-1/2 pt-10">
                             <div class="bg-inherit rounded-sm w-2/3 h-full flex my-3">
                                 <div class="flex flex-col justify-center w-2/5">
-                                    <span class="ml-7 text-xs pb-3">danho hecho: </span>
-                                    <span class="ml-7 text-xs pt-3">danho recivido: </span>
+                                    <span class="ml-7 text-xl pb-3">Danho hecho: </span>
+                                    <span class="ml-7 text-xl pt-3">Danho recivido: </span>
                                     
                                 </div>
                                 <div class="flex w-full flex-col justify-center">
                                     <div class="flex justify-center items-center bg-gradient-to-r h-4 mb-3 from-green-700 to-green-400 w-0 green">
-                                        <span class="porcentaje text-xs text-gray-700"></span>
+                                        <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                     <div class="flex justify-center items-center bg-gradient-to-r h-4 mt-3 from-red-500 to-red-700 w-0 red">
-                                        <span class="porcentaje text-xs text-gray-700"></span>
+                                        <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="w-1/3 h-full flex justify-center items-center flex-col">
-                                <span class="text-sm text-center mb-5">Rango</span>
-                                <img class="img-rango" src="#" alt="">
-                                <span class="rang-text text-sm mt-5"></span>
+                            <div class="mr-5 w-1/3 h-full flex flex-col justify-center items-center">
+                                <span class="text-xl text-center mb-3">Rango</span>
+                                <div class="flex flex-col">
+                                    <img class="img-rango" src="#" alt="">
+                                    <span class="rang-text text-lg mt-1 text-black/20"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide justify-center bg-stone-300 rounded-md px-7 py-3 border-double border-4 border-gray-800">
+                    <div class="swiper-slide justify-center bg-secondary-2 px-7 py-3 border-double border-4 border-gray-800">
+                        <div class="filtro absolute w-full h-full top-0 left-0 z-10"></div>
+                        <span class="absolute bg-black top-0 left-0 text-secondary-2 px-5 z-0 match"></span>
                         <div class="row flex h-1/2 w-full pt-10">
                             <div class="w-1/3 h-full flex flex-col justify-start items-center">
-                                <span class="mb-5 character"></span>
+                                <span class="mb-5 character text-3xl"></span>
                                 <div class="img-container-1 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
                                     <img class="img-incognito">
                                 </div>
                             </div>
                             <div class="w-full flex justify-center items-start">
                                 <div class="w-1/2 flex justify-center flex-col items-center">
-                                    <span class="">Marcador</span>
-                                    <div class="mt-16">
+                                    <span class="text-3xl">Marcador</span>
+                                    <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
                                         <span class="marcador text-3xl"></span><span class="text-3xl"> / </span><span class="marcador-2 text-3xl"></span>
+                                    </div>
+                                    <div class="flex flex-col justify-center items-center mt-7">
+                                        <span class="text-2xl">KDA: </span>
+                                        <span class="KDA text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
                                     </div>
                                 </div>
                                 <div class="w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
-                                    <span class="map-name mb-5">Mapa</span>
+                                    <span class="map-name mb-5 text-3xl map-text">Mapa</span>
                                     <img class="map-img-container w-64 sombra" src="" alt="Imagen del mapa">
                                 </div>
                             </div>
@@ -156,43 +195,51 @@
                         <div class="flex row h-1/2 pt-10">
                             <div class="bg-inherit rounded-sm w-2/3 h-full flex my-3">
                                 <div class="flex flex-col justify-center w-2/5">
-                                    <span class="ml-7 text-xs pb-3">danho hecho: </span>
-                                    <span class="ml-7 text-xs pt-3">danho recivido: </span>
+                                    <span class="ml-7 text-xl pb-3">Danho hecho: </span>
+                                    <span class="ml-7 text-xl pt-3">Danho recivido: </span>
                                     
                                 </div>
                                 <div class="flex w-full flex-col justify-center">
                                     <div class="flex justify-center items-center bg-gradient-to-r h-4 mb-3 from-green-700 to-green-400 w-0 green">
-                                        <span class="porcentaje text-xs text-gray-700"></span>
+                                        <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                     <div class="flex justify-center items-center bg-gradient-to-r h-4 mt-3 from-red-500 to-red-700 w-0 red">
-                                        <span class="porcentaje text-xs text-gray-700"></span>
+                                        <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="w-1/3 h-full flex justify-center items-center flex-col">
-                                <span class="text-sm text-center mb-5">Rango</span>
-                                <img class="img-rango" src="#" alt="">
-                                <span class="rang-text text-sm mt-5"></span>
+                            <div class="mr-5 w-1/3 h-full flex flex-col justify-center items-center">
+                                <span class="text-xl text-center mb-3">Rango</span>
+                                <div class="flex flex-col">
+                                    <img class="img-rango" src="#" alt="">
+                                    <span class="rang-text text-lg mt-1 text-black/20"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide justify-center bg-stone-300 rounded-md px-7 py-3 border-double border-4 border-gray-800">
+                    <div class="swiper-slide justify-center bg-secondary-2 px-7 py-3 border-double border-4 border-gray-800">
+                        <div class="filtro absolute w-full h-full top-0 left-0 z-10"></div>
+                        <span class="absolute bg-black top-0 left-0 text-secondary-2 px-5 z-0 match"></span>
                         <div class="row flex h-1/2 w-full pt-10">
                             <div class="w-1/3 h-full flex flex-col justify-start items-center">
-                                <span class="mb-5 character"></span>
+                                <span class="mb-5 character text-3xl"></span>
                                 <div class="img-container-1 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
                                     <img class="img-incognito">
                                 </div>
                             </div>
                             <div class="w-full flex justify-center items-start">
                                 <div class="w-1/2 flex justify-center flex-col items-center">
-                                    <span class="">Marcador</span>
-                                    <div class="mt-16">
+                                    <span class="text-3xl">Marcador</span>
+                                    <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
                                         <span class="marcador text-3xl"></span><span class="text-3xl"> / </span><span class="marcador-2 text-3xl"></span>
+                                    </div>
+                                    <div class="flex flex-col justify-center items-center mt-7">
+                                        <span class="text-2xl">KDA: </span>
+                                        <span class="KDA text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
                                     </div>
                                 </div>
                                 <div class="w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
-                                    <span class="map-name mb-5">Mapa</span>
+                                    <span class="map-name mb-5 text-3xl map-text">Mapa</span>
                                     <img class="map-img-container w-64 sombra" src="" alt="Imagen del mapa">
                                 </div>
                             </div>
@@ -200,43 +247,51 @@
                         <div class="flex row h-1/2 pt-10">
                             <div class="bg-inherit rounded-sm w-2/3 h-full flex my-3">
                                 <div class="flex flex-col justify-center w-2/5">
-                                    <span class="ml-7 text-xs pb-3">danho hecho: </span>
-                                    <span class="ml-7 text-xs pt-3">danho recivido: </span>
+                                    <span class="ml-7 text-xl pb-3">Danho hecho: </span>
+                                    <span class="ml-7 text-xl pt-3">Danho recivido: </span>
                                     
                                 </div>
                                 <div class="flex w-full flex-col justify-center">
                                     <div class="flex justify-center items-center bg-gradient-to-r h-4 mb-3 from-green-700 to-green-400 w-0 green">
-                                        <span class="porcentaje text-xs text-gray-700"></span>
+                                        <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                     <div class="flex justify-center items-center bg-gradient-to-r h-4 mt-3 from-red-500 to-red-700 w-0 red">
-                                        <span class="porcentaje text-xs text-gray-700"></span>
+                                        <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="w-1/3 h-full flex justify-center items-center flex-col">
-                                <span class="text-sm text-center mb-5">Rango</span>
-                                <img class="img-rango" src="#" alt="">
-                                <span class="rang-text text-sm mt-5"></span>
+                            <div class="mr-5 w-1/3 h-full flex flex-col justify-center items-center">
+                                <span class="text-xl text-center mb-3">Rango</span>
+                                <div class="flex flex-col">
+                                    <img class="img-rango" src="#" alt="">
+                                    <span class="rang-text text-lg mt-1 text-black/20"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide justify-center bg-stone-300 rounded-md px-7 py-3 border-double border-4 border-gray-800">
+                    <div class="swiper-slide justify-center bg-secondary-2 px-7 py-3 border-double border-4 border-gray-800">
+                        <div class="filtro absolute w-full h-full top-0 left-0 z-10"></div>
+                        <span class="absolute bg-black top-0 left-0 text-secondary-2 px-5 z-0 match"></span>
                         <div class="row flex h-1/2 w-full pt-10">
                             <div class="w-1/3 h-full flex flex-col justify-start items-center">
-                                <span class="mb-5 character"></span>
+                                <span class="mb-5 character text-3xl"></span>
                                 <div class="img-container-1 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
                                     <img class="img-incognito">
                                 </div>
                             </div>
                             <div class="w-full flex justify-center items-start">
                                 <div class="w-1/2 flex justify-center flex-col items-center">
-                                    <span class="">Marcador</span>
-                                    <div class="mt-16">
+                                    <span class="text-3xl">Marcador</span>
+                                    <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
                                         <span class="marcador text-3xl"></span><span class="text-3xl"> / </span><span class="marcador-2 text-3xl"></span>
+                                    </div>
+                                    <div class="flex flex-col justify-center items-center mt-7">
+                                        <span class="text-2xl">KDA: </span>
+                                        <span class="KDA text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
                                     </div>
                                 </div>
                                 <div class="w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
-                                    <span class="map-name mb-5">Mapa</span>
+                                    <span class="map-name mb-5 text-3xl map-text">Mapa</span>
                                     <img class="map-img-container w-64 sombra" src="" alt="Imagen del mapa">
                                 </div>
                             </div>
@@ -244,34 +299,56 @@
                         <div class="flex row h-1/2 pt-10">
                             <div class="bg-inherit rounded-sm w-2/3 h-full flex my-3">
                                 <div class="flex flex-col justify-center w-2/5">
-                                    <span class="ml-7 text-xs pb-3">danho hecho: </span>
-                                    <span class="ml-7 text-xs pt-3">danho recivido: </span>
+                                    <span class="ml-7 text-xl pb-3">Danho hecho: </span>
+                                    <span class="ml-7 text-xl pt-3">Danho recivido: </span>
                                     
                                 </div>
                                 <div class="flex w-full flex-col justify-center">
                                     <div class="flex justify-center items-center bg-gradient-to-r h-4 mb-3 from-green-700 to-green-400 w-0 green">
-                                        <span class="porcentaje text-xs text-gray-700"></span>
+                                        <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                     <div class="flex justify-center items-center bg-gradient-to-r h-4 mt-3 from-red-500 to-red-700 w-0 red">
-                                        <span class="porcentaje text-xs text-gray-700"></span>
+                                        <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="w-1/3 h-full flex justify-center items-center flex-col">
-                                <span class="text-sm text-center mb-5">Rango</span>
-                                <img class="img-rango" src="#" alt="">
-                                <span class="rang-text text-sm mt-5"></span>
+                            <div class="mr-5 w-1/3 h-full flex flex-col justify-center items-center">
+                                <span class="text-xl text-center mb-3">Rango</span>
+                                <div class="flex flex-col">
+                                    <img class="img-rango" src="#" alt="">
+                                    <span class="rang-text text-lg mt-1 text-black/20"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
             </div>
         </section>
 
+        <section class="mt-56 mb-52">
+            <div class="w-full sombra mx-auto rounded-lg bg-secondary-2 shadow-lg px-5 pt-5 pb-10 text-gray-800" style="max-width: 500px">
+                <div class="w-full pt-1 pb-5">
+                    <div class="overflow-hidden rounded-full w-20 h-20 -mt-16 mx-auto shadow-lg">
+                        <img src="https://img.freepik.com/vector-premium/pixeles-pato-8-bits-activos-juegos-animales-ilustraciones-vectoriales_614713-449.jpg?w=2000">
+                    </div>
+                </div>
+                <div class="w-full mb-10">
+                    <div class="text-3xl text-secondary text-left leading-tight h-3">“</div>
+                    <p class="text-xl text-gray-600 text-center px-5">Estudiante de desarrollo de software de la Universidad Católica de Cuyo de San Juan, Argentina.</p>
+                    <div class="text-3xl text-secondary text-right leading-tight h-3 -mt-3">”</div>
+                </div>
+                <div class="w-full">
+                    <p class="text-xl text-secondary font-bold text-center">Gabriel Funes</p>
+                    <p class="text-lg text-gray-500 text-center">@gabriel_funes</p>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer class="bg-gray-900 text-white py-6 bottom-0 w-full">
+
+    <footer class="bg-secondary text-white py-6 bottom-0 w-full">
         <div class="container mx-auto">
             <p class="text-center">&copy; Gabriel Funes</p>
         </div>

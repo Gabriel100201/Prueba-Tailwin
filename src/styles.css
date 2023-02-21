@@ -1,17 +1,27 @@
 .sombra{
-    -webkit-box-shadow: 11px 11px 0px 0px rgba(66,66,66,0.8);
-    -moz-box-shadow: 11px 11px 0px 0px rgba(66,66,66,0.8);
-    box-shadow: 11px 11px 0px 0px rgba(66,66,66,0.8);
+    -webkit-box-shadow: 11px 11px 0px 0px rgba(31, 31, 31, 0.7);
+    -moz-box-shadow: 11px 11px 0px 0px rgba(0,0,0,0.7);
+    box-shadow: 11px 11px 0px 0px rgba(0,0,0,0.7);
 }
-
+.sombra-principal{
+    -webkit-box-shadow: 10px 10px 3px -3px rgba(0,0,0,1);
+    -moz-box-shadow: 10px 10px 3px -3px rgba(0,0,0,1);
+    box-shadow: 10px 10px 3px -3px rgba(0,0,0,1);
+}
 .animation-spin{
     animation: spin 1s linear infinite;
+}
+.filtro{
+    background-image: url(retro.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .1;
 }
 .swiper{
     height: 500px;
 }
 body{
-    font-family: '8BIT WONDER', sans-serif;
+    font-family: '8-bits';
 }
 input{
     font-family: monospace;
@@ -24,4 +34,11 @@ input{
     to {
         transform: rotate(360deg);
     }
+}
+
+@font-face {
+    font-family: '8-bits';
+    src: url('8-Bit\ Madness.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
 }

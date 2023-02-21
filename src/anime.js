@@ -43,4 +43,30 @@ export const bajar = () => {
         duration: 1500,
         loop: false
     });
+    anime({
+        targets: '.leave-text',
+        opacity: '0',
+        easing: 'easeInSine',
+        direction: 'normal',
+        duration: 1600,
+        loop: false
+    })
+}
+export const subir = () => {
+    anime({
+        targets: '.telon',
+        height: '500px', // -> from '28px' to '100%',
+        easing: 'easeInSine',
+        direction: 'normal',
+        duration: 1000,
+        loop: false
+    });
+    anime({
+        targets: '.leave-text',
+        opacity: '1',
+        easing: 'easeInSine',
+        direction: 'normal',
+        duration: 1000,
+        loop: false
+    })
 }
