@@ -70,3 +70,39 @@ export const subir = () => {
         loop: false
     })
 }
+export const menuBajar = () => {
+    anime({
+        targets: '.menu-mobile',
+        height: '100vh', // -> from '28px' to '100%',
+        easing: 'easeInSine',
+        direction: 'normal',
+        duration: 1500,
+        loop: false
+    });
+    anime({
+        targets: '.menu-lista',
+        opacity: '1',
+        easing: 'easeInSine',
+        direction: 'normal',
+        duration: 1000,
+        loop: false
+    })
+}
+export const menuSubir = () => {
+    anime({
+        targets: '.menu-mobile',
+        height: '0vh', // -> from '28px' to '100%',
+        easing: 'easeInSine',
+        direction: 'normal',
+        duration: 1500,
+        loop: false
+    });
+    anime({
+        targets: '.menu-lista',
+        opacity: '0',
+        easing: 'easeInSine',
+        direction: 'normal',
+        duration: 1000,
+        loop: false
+    })
+}

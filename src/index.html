@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <link href="https://fonts.cdnfonts.com/css/8bit-wonder" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9dfc4376a5.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <title>Documento</title>
 </head>
@@ -17,26 +18,39 @@
     <header class="bg-secondary p-6">
         <nav class="flex items-center justify-between">
             <h1 class="text-white text-xl tracking-tight">Tracker 8-bits</h1>
-            <ul class="flex items-center">
+            <ul class="hidden sm:flex items-center">
                 <li><a href="#" class="text-secondary-2 hover:text-secondary-hover mr-10 text-xl">Inicio</a></li>
                 <li><a href="#" class="text-secondary-2 hover:text-secondary-hover mr-10 text-xl">Acerca de</a></li>
                 <li><a href="#" class="text-secondary-2 hover:text-secondary-hover text-xl">Contacto</a></li>
             </ul>
+            <button class="sm:hidden menu-button">
+                <i class="fa-solid fa-bars text-secondary-2"></i>
+            </button>
+        </nav>
+        <nav class="menu-mobile hidden bg-secondary w-full h-0 sm:hidden justify-center items-center">
+            <ul class="flex items-center justify-center flex-col menu-lista opacity-0">
+                <li class="mb-10"><a href="#" class="text-secondary-2 hover:text-secondary-hover text-2xl">Inicio</a></li>
+                <li class="mb-10"><a href="#" class="text-secondary-2 hover:text-secondary-hover text-2xl">Acerca de</a></li>
+                <li class="mb-10"><a href="#" class="text-secondary-2 hover:text-secondary-hover text-2xl">Contacto</a></li>
+            </ul>
+            <button class="absolute bottom-5 subir-button">
+                <i class="fa-solid fa-arrow-up-long text-secondary-2"></i>
+            </button>
         </nav>
     </header>
 
     <main class="flex flex-col items-center">
         <!-- INPUT DE NOMBRE Y TAG DEL JUGADOR -->
-        <section class="w-2/3 pt-20 pb-20 h-fit bg-gray-900/10 border-4 sombra-principal border-black rounded-lg flex flex-col justify-center items-center mt-52 mb-52 searcher">
-            <span class="text-2xl">Ingresa tu nombre y tu ID (Sin #)</span>
-            <div class="flex mb-10">
-                <div class="relative m-14">
-                    <span class="animable-span transition-transform w-40 h-10 absolute translate-x-1.5 translate-y-1.5 bg-gray-300 z-0"></span>
-                    <input placeholder="Nombre" id="input-nombre" class="animable-input text-center w-40 h-10 relative border-2 border-current px-8 py-3 text-sm font-bold text-black bg-inherit z-10" type="text">
+        <section class="w-5/6 2xl:w-2/3 pt-20 pb-20 h-fit bg-gray-900/10 border-4 sombra-principal border-black rounded-lg flex flex-col justify-center items-center mt-52 mb-52 searcher">
+            <span class="text-2xl mb-5 sm:mb-0 px-10 text-center sm:px-0">Ingresa tu nombre y tu ID (Sin #)</span>
+            <div class="flex flex-col sm:flex-row mb-10">
+                <div class="relative m-5 sm:m-14">
+                    <span class="animable-span transition-transform w-56 sm:w-40 h-10 absolute translate-x-1.5 translate-y-1.5 bg-gray-300 z-0"></span>
+                    <input placeholder="Nombre" id="input-nombre" class="animable-input text-center w-56 sm:w-40 h-10 relative border-2 border-current px-8 py-3 text-sm font-bold text-black bg-inherit z-10" type="text">
                 </div>
-                <div class="relative m-14">
-                    <span class="animable-span transition-transform w-40 h-10 absolute translate-x-1.5 translate-y-1.5 bg-gray-300 z-0"></span>
-                    <input placeholder="Id" id="input-tag" class="animable-input text-center w-40 h-10 relative border-2 border-current px-8 py-3 text-sm font-bold text-black bg-inherit z-10" type="text">
+                <div class="relative m-5 sm:m-14">
+                    <span class="animable-span transition-transform w-56 sm:w-40 h-10 absolute translate-x-1.5 translate-y-1.5 bg-gray-300 z-0"></span>
+                    <input placeholder="Id" id="input-tag" class="animable-input text-center w-56 sm:w-40 h-10 relative border-2 border-current px-8 py-3 text-sm font-bold text-black bg-inherit z-10" type="text">
                 </div>
             </div>
             <button id="input-button" class="w-30 group relative inline-block focus:outline-none focus:ring h-11">
@@ -46,69 +60,78 @@
         </section>
         <!-- TARJETAS DE JUGADOR DE LAS ULTIMAS 5 PARTIDAS -->
         <section class="w-full mt-20 mb-20 cards relative">
-            <button id="subir-button" class="absolute w-10 h-10 bg-black right-32 rounded-full top-1/2 p-2">
-                <img src="Recurso1.svg" alt="">
-            </button>
-            <span class="absolute top-96 right-20 text-lg">Buscar nuevamente</span>
-            <div class="swiper mySwiper mb-20 mt-20 w-2/3 sombra">
+            <div class="absolute top-0 right-[38%] lg:top-1/2 lg:right-0 w-2/12 justify-start items-center flex flex-col h-32">
+                <button id="subir-button" class="w-10 h-10 bg-black rounded-full p-2">
+                    <img src="Recurso1.svg" alt="">
+                </button>
+                <span class="text-lg hidden lg:block">Buscar nuevamente</span>
+            </div>
+            
+            <div class="swiper mySwiper mb-20 mt-20 w-5/6 sm:w-5/6 lg:w-2/3 sombra h-[500px] sm:h-[500px]">
                 <div class="bg-secondary-2 absolute w-full h-full flex-col z-50 telon flex justify-center items-center">
-                    <span class="text-4xl leave-text">Tracker 8-bits</span>
+                    <span class="text-4xl sm:text-4xl leave-text sm:m-0 mb-10">Tracker 8-bits</span>
                     <div class="flex items-center justify-center space-x-2 mt-7 leave-text">
-                        <div class="w-5 h-5 dark:bg-secondary loader"></div>
-                        <div class="w-5 h-5 dark:bg-secondary loader"></div>
-                        <div class="w-5 h-5 dark:bg-secondary loader"></div>
+                        <div class="sm:w-5 sm:h-5 h-7 w-7 dark:bg-secondary loader"></div>
+                        <div class="sm:w-5 sm:h-5 h-7 w-7 dark:bg-secondary loader"></div>
+                        <div class="sm:w-5 sm:h-5 h-7 w-7 dark:bg-secondary loader"></div>
                     </div>
-                    <span class="text-2xl mt-10 cargando leave-text">Esperando a que ingrese nombre y su ID</span>
+                    <span class="sm:mt-10 mt-20 text-xl mx-5 text-center sm:text-2xl cargando leave-text">Esperando a que ingrese nombre y su ID</span>
                 </div>
                 <div class="swiper-wrapper">
                     <div class="swiper-slide justify-center bg-secondary-2 px-7 py-3 border-double border-4 border-gray-800">
                         <div class="filtro absolute w-full h-full top-0 left-0 z-10"></div>
                         <span class="absolute bg-black top-0 left-0 text-secondary-2 px-5 z-0 match"></span>
-                        <div class="row flex h-1/2 w-full pt-10">
-                            <div class="w-1/3 h-full flex flex-col justify-start items-center">
-                                <span class="mb-5 character text-3xl"></span>
-                                <div class="img-container-1 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
+                        <div class="row flex flex-col justify-center items-center sm:flex-row sm:items-start h-2/3 sm:h-1/2 w-full pt-20 sm:pt-10">
+                            <div class="sm:w-1/3 w-full h-full flex sm:flex-col justify-center sm:justify-start items-center">
+                                <span class="sm:mb-5 character text-xl sm:text-3xl"></span>
+                                <div class="img-container-1 sm:sombra h-24 w-24 sm:h-32 sm:w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
                                     <img class="img-incognito">
                                 </div>
                             </div>
-                            <div class="w-full flex justify-center items-start">
-                                <div class="w-1/2 flex justify-center flex-col items-center">
-                                    <span class="text-3xl">Marcador</span>
-                                    <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
-                                        <span class="marcador text-3xl"></span><span class="text-3xl"> / </span><span class="marcador-2 text-3xl"></span>
+                            <div class="w-full flex flex-col sm:flex-row mt-3 sm:mt-0 justify-center items-start">
+                                <div class="w-full sm:w-1/2 flex justify-around sm:flex-col items-center">
+                                    <div>
+                                        <span class="text-xl sm:text-3xl">Marcador</span>
+                                        <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
+                                            <span class="marcador text-xl sm:text-3xl"></span><span class="text-xl sm:text-3xl"> / </span><span class="marcador-2 text-xl sm:text-3xl"></span>
+                                        </div>
                                     </div>
-                                    <div class="flex flex-col justify-center items-center mt-7">
-                                        <span class="text-2xl">KDA: </span>
-                                        <span class="KDA text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
+                                    <div class="flex flex-col justify-center items-center sm:mt-7">
+                                        <span class="text-xl sm:text-2xl">KDA: </span>
+                                        <span class="KDA text-lg sm:text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
                                     </div>
                                 </div>
-                                <div class="w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
-                                    <span class="map-name mb-5 text-3xl map-text">Mapa</span>
-                                    <img class="map-img-container w-64 sombra" src="" alt="Imagen del mapa">
+                                <div class="w-full sm:w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
+                                    <span class="map-name mt-7 sm:mt-0 sm:mb-5 text-xl sm:text-3xl map-text">Mapa</span>
+                                    <div class="w-auto sm:w-auto max-h-20 sm:max-h-full sm:h-36 bg-red-400">
+                                        <img class="map-img-container object-cover h-full sombra" src="" alt="Imagen del mapa">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex row h-1/2 pt-10">
-                            <div class="bg-inherit rounded-sm w-2/3 h-full flex my-3">
-                                <div class="flex flex-col justify-center w-2/5">
-                                    <span class="ml-7 text-xl pb-3">Danho hecho: </span>
-                                    <span class="ml-7 text-xl pt-3">Danho recivido: </span>
-                                    
+                        <div class="flex w-full sm:flex-row flex-col h-1/3 sm:h-1/2 sm:pt-10 pt-20">
+                            <div class="w-full text-center sm:hidden">
+                                <span>Danho <span class="text-green-600">hecho</span> vs <span class="text-red-600">recivido</span></span>
+                            </div>
+                            <div class="bg-inherit rounded-sm sm:w-2/3 h-full flex my-3">
+                                <div class="hidden sm:flex flex-col justify-center w-1/2">
+                                    <span class="ml-5 text-base lg:text-xl pb-3 w-full">Danho hecho: </span>
+                                    <span class="ml-5 text-base lg:text-xl pt-3 w-full">Danho recivido: </span>
                                 </div>
-                                <div class="flex w-full flex-col justify-center">
-                                    <div class="flex justify-center items-center bg-gradient-to-r h-4 mb-3 from-green-700 to-green-400 w-0 green">
+                                <div class="flex w-full sm:flex-col justify-center">
+                                    <div class="sm:ml-4 lg:ml-3 flex justify-center items-center bg-gradient-to-r h-4 sm:mb-3 from-green-700 to-green-400 w-0 green">
                                         <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
-                                    <div class="flex justify-center items-center bg-gradient-to-r h-4 mt-3 from-red-500 to-red-700 w-0 red">
+                                    <div class="sm:ml-4 lg:ml-3 flex justify-center items-center bg-gradient-to-r h-4 sm:mt-3 from-red-500 to-red-700 w-0 red">
                                         <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mr-5 w-1/3 h-full flex flex-col justify-center items-center">
-                                <span class="text-xl text-center mb-3">Rango</span>
-                                <div class="flex flex-col">
-                                    <img class="img-rango" src="#" alt="">
-                                    <span class="rang-text text-lg mt-1 text-black/20"></span>
+                            <div class="h-[24px] w-[120px] bg-black sm:bg-inherit absolute top-0 right-0 sm:static sm:mr-5 sm:w-1/3 sm:h-full flex sm:flex-col sm:justify-center sm:items-center">
+                                <span class="hidden sm:block text-xl text-center mb-3">Rango</span>
+                                <div class="flex flex-row justify-center items-center w-full sm:flex-col">
+                                    <img class="img-rango w-[17px] mr-2 sm:p-0 sm:w-auto" src="#" alt="">
+                                    <span class="rang-text text-lg sm:mt-1 text-secondary-2 sm:text-black/20"></span>
                                 </div>
                             </div>
                         </div>
@@ -116,51 +139,57 @@
                     <div class="swiper-slide justify-center bg-secondary-2 px-7 py-3 border-double border-4 border-gray-800">
                         <div class="filtro absolute w-full h-full top-0 left-0 z-10"></div>
                         <span class="absolute bg-black top-0 left-0 text-secondary-2 px-5 z-0 match"></span>
-                        <div class="row flex h-1/2 w-full pt-10">
-                            <div class="w-1/3 h-full flex flex-col justify-start items-center">
-                                <span class="mb-5 character text-3xl"></span>
-                                <div class="img-container-1 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
+                        <div class="row flex flex-col justify-center items-center sm:flex-row sm:items-start h-2/3 sm:h-1/2 w-full pt-20 sm:pt-10">
+                            <div class="sm:w-1/3 w-full h-full flex sm:flex-col justify-center sm:justify-start items-center">
+                                <span class="sm:mb-5 character text-xl sm:text-3xl"></span>
+                                <div class="img-container-1 sm:sombra h-24 w-24 sm:h-32 sm:w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
                                     <img class="img-incognito">
                                 </div>
                             </div>
-                            <div class="w-full flex justify-center items-start">
-                                <div class="w-1/2 flex justify-center flex-col items-center">
-                                    <span class="text-3xl">Marcador</span>
-                                    <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
-                                        <span class="marcador text-3xl"></span><span class="text-3xl"> / </span><span class="marcador-2 text-3xl"></span>
+                            <div class="w-full flex flex-col sm:flex-row mt-3 sm:mt-0 justify-center items-start">
+                                <div class="w-full sm:w-1/2 flex justify-around sm:flex-col items-center">
+                                    <div>
+                                        <span class="text-xl sm:text-3xl">Marcador</span>
+                                        <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
+                                            <span class="marcador text-xl sm:text-3xl"></span><span class="text-xl sm:text-3xl"> / </span><span class="marcador-2 text-xl sm:text-3xl"></span>
+                                        </div>
                                     </div>
-                                    <div class="flex flex-col justify-center items-center mt-7">
-                                        <span class="text-2xl">KDA: </span>
-                                        <span class="KDA text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
+                                    <div class="flex flex-col justify-center items-center sm:mt-7">
+                                        <span class="text-xl sm:text-2xl">KDA: </span>
+                                        <span class="KDA text-lg sm:text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
                                     </div>
                                 </div>
-                                <div class="w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
-                                    <span class="map-name mb-5 text-3xl map-text">Mapa</span>
-                                    <img class="map-img-container w-64 sombra" src="" alt="Imagen del mapa">
+                                <div class="w-full sm:w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
+                                    <span class="map-name mt-7 sm:mt-0 sm:mb-5 text-xl sm:text-3xl map-text">Mapa</span>
+                                    <div class="w-auto sm:w-auto max-h-20 sm:max-h-full sm:h-36 bg-red-400">
+                                        <img class="map-img-container object-cover h-full sombra" src="" alt="Imagen del mapa">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex row h-1/2 pt-10">
-                            <div class="bg-inherit rounded-sm w-2/3 h-full flex my-3">
-                                <div class="flex flex-col justify-center w-2/5">
-                                    <span class="ml-7 text-xl pb-3">Danho hecho: </span>
-                                    <span class="ml-7 text-xl pt-3">Danho recivido: </span>
-                                    
+                        <div class="flex w-full sm:flex-row flex-col h-1/3 sm:h-1/2 sm:pt-10 pt-20">
+                            <div class="w-full text-center sm:hidden">
+                                <span>Danho <span class="text-green-600">hecho</span> vs <span class="text-red-600">recivido</span></span>
+                            </div>
+                            <div class="bg-inherit rounded-sm sm:w-2/3 h-full flex my-3">
+                                <div class="hidden sm:flex flex-col justify-center w-1/2">
+                                    <span class="ml-5 text-base lg:text-xl pb-3 w-full">Danho hecho: </span>
+                                    <span class="ml-5 text-base lg:text-xl pt-3 w-full">Danho recivido: </span>
                                 </div>
-                                <div class="flex w-full flex-col justify-center">
-                                    <div class="flex justify-center items-center bg-gradient-to-r h-4 mb-3 from-green-700 to-green-400 w-0 green">
+                                <div class="flex w-full sm:flex-col justify-center">
+                                    <div class="sm:ml-4 lg:ml-3 flex justify-center items-center bg-gradient-to-r h-4 sm:mb-3 from-green-700 to-green-400 w-0 green">
                                         <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
-                                    <div class="flex justify-center items-center bg-gradient-to-r h-4 mt-3 from-red-500 to-red-700 w-0 red">
+                                    <div class="sm:ml-4 lg:ml-3 flex justify-center items-center bg-gradient-to-r h-4 sm:mt-3 from-red-500 to-red-700 w-0 red">
                                         <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mr-5 w-1/3 h-full flex flex-col justify-center items-center">
-                                <span class="text-xl text-center mb-3">Rango</span>
-                                <div class="flex flex-col">
-                                    <img class="img-rango" src="#" alt="">
-                                    <span class="rang-text text-lg mt-1 text-black/20"></span>
+                            <div class="h-[24px] w-[120px] bg-black sm:bg-inherit absolute top-0 right-0 sm:static sm:mr-5 sm:w-1/3 sm:h-full flex sm:flex-col sm:justify-center sm:items-center">
+                                <span class="hidden sm:block text-xl text-center mb-3">Rango</span>
+                                <div class="flex flex-row justify-center items-center w-full sm:flex-col">
+                                    <img class="img-rango w-[17px] mr-2 sm:p-0 sm:w-auto" src="#" alt="">
+                                    <span class="rang-text text-lg sm:mt-1 text-secondary-2 sm:text-black/20"></span>
                                 </div>
                             </div>
                         </div>
@@ -168,51 +197,57 @@
                     <div class="swiper-slide justify-center bg-secondary-2 px-7 py-3 border-double border-4 border-gray-800">
                         <div class="filtro absolute w-full h-full top-0 left-0 z-10"></div>
                         <span class="absolute bg-black top-0 left-0 text-secondary-2 px-5 z-0 match"></span>
-                        <div class="row flex h-1/2 w-full pt-10">
-                            <div class="w-1/3 h-full flex flex-col justify-start items-center">
-                                <span class="mb-5 character text-3xl"></span>
-                                <div class="img-container-1 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
+                        <div class="row flex flex-col justify-center items-center sm:flex-row sm:items-start h-2/3 sm:h-1/2 w-full pt-20 sm:pt-10">
+                            <div class="sm:w-1/3 w-full h-full flex sm:flex-col justify-center sm:justify-start items-center">
+                                <span class="sm:mb-5 character text-xl sm:text-3xl"></span>
+                                <div class="img-container-1 sm:sombra h-24 w-24 sm:h-32 sm:w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
                                     <img class="img-incognito">
                                 </div>
                             </div>
-                            <div class="w-full flex justify-center items-start">
-                                <div class="w-1/2 flex justify-center flex-col items-center">
-                                    <span class="text-3xl">Marcador</span>
-                                    <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
-                                        <span class="marcador text-3xl"></span><span class="text-3xl"> / </span><span class="marcador-2 text-3xl"></span>
+                            <div class="w-full flex flex-col sm:flex-row mt-3 sm:mt-0 justify-center items-start">
+                                <div class="w-full sm:w-1/2 flex justify-around sm:flex-col items-center">
+                                    <div>
+                                        <span class="text-xl sm:text-3xl">Marcador</span>
+                                        <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
+                                            <span class="marcador text-xl sm:text-3xl"></span><span class="text-xl sm:text-3xl"> / </span><span class="marcador-2 text-xl sm:text-3xl"></span>
+                                        </div>
                                     </div>
-                                    <div class="flex flex-col justify-center items-center mt-7">
-                                        <span class="text-2xl">KDA: </span>
-                                        <span class="KDA text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
+                                    <div class="flex flex-col justify-center items-center sm:mt-7">
+                                        <span class="text-xl sm:text-2xl">KDA: </span>
+                                        <span class="KDA text-lg sm:text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
                                     </div>
                                 </div>
-                                <div class="w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
-                                    <span class="map-name mb-5 text-3xl map-text">Mapa</span>
-                                    <img class="map-img-container w-64 sombra" src="" alt="Imagen del mapa">
+                                <div class="w-full sm:w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
+                                    <span class="map-name mt-7 sm:mt-0 sm:mb-5 text-xl sm:text-3xl map-text">Mapa</span>
+                                    <div class="w-auto sm:w-auto max-h-20 sm:max-h-full sm:h-36 bg-red-400">
+                                        <img class="map-img-container object-cover h-full sombra" src="" alt="Imagen del mapa">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex row h-1/2 pt-10">
-                            <div class="bg-inherit rounded-sm w-2/3 h-full flex my-3">
-                                <div class="flex flex-col justify-center w-2/5">
-                                    <span class="ml-7 text-xl pb-3">Danho hecho: </span>
-                                    <span class="ml-7 text-xl pt-3">Danho recivido: </span>
-                                    
+                        <div class="flex w-full sm:flex-row flex-col h-1/3 sm:h-1/2 sm:pt-10 pt-20">
+                            <div class="w-full text-center sm:hidden">
+                                <span>Danho <span class="text-green-600">hecho</span> vs <span class="text-red-600">recivido</span></span>
+                            </div>
+                            <div class="bg-inherit rounded-sm sm:w-2/3 h-full flex my-3">
+                                <div class="hidden sm:flex flex-col justify-center w-1/2">
+                                    <span class="ml-5 text-base lg:text-xl pb-3 w-full">Danho hecho: </span>
+                                    <span class="ml-5 text-base lg:text-xl pt-3 w-full">Danho recivido: </span>
                                 </div>
-                                <div class="flex w-full flex-col justify-center">
-                                    <div class="flex justify-center items-center bg-gradient-to-r h-4 mb-3 from-green-700 to-green-400 w-0 green">
+                                <div class="flex w-full sm:flex-col justify-center">
+                                    <div class="sm:ml-4 lg:ml-3 flex justify-center items-center bg-gradient-to-r h-4 sm:mb-3 from-green-700 to-green-400 w-0 green">
                                         <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
-                                    <div class="flex justify-center items-center bg-gradient-to-r h-4 mt-3 from-red-500 to-red-700 w-0 red">
+                                    <div class="sm:ml-4 lg:ml-3 flex justify-center items-center bg-gradient-to-r h-4 sm:mt-3 from-red-500 to-red-700 w-0 red">
                                         <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mr-5 w-1/3 h-full flex flex-col justify-center items-center">
-                                <span class="text-xl text-center mb-3">Rango</span>
-                                <div class="flex flex-col">
-                                    <img class="img-rango" src="#" alt="">
-                                    <span class="rang-text text-lg mt-1 text-black/20"></span>
+                            <div class="h-[24px] w-[120px] bg-black sm:bg-inherit absolute top-0 right-0 sm:static sm:mr-5 sm:w-1/3 sm:h-full flex sm:flex-col sm:justify-center sm:items-center">
+                                <span class="hidden sm:block text-xl text-center mb-3">Rango</span>
+                                <div class="flex flex-row justify-center items-center w-full sm:flex-col">
+                                    <img class="img-rango w-[17px] mr-2 sm:p-0 sm:w-auto" src="#" alt="">
+                                    <span class="rang-text text-lg sm:mt-1 text-secondary-2 sm:text-black/20"></span>
                                 </div>
                             </div>
                         </div>
@@ -220,51 +255,57 @@
                     <div class="swiper-slide justify-center bg-secondary-2 px-7 py-3 border-double border-4 border-gray-800">
                         <div class="filtro absolute w-full h-full top-0 left-0 z-10"></div>
                         <span class="absolute bg-black top-0 left-0 text-secondary-2 px-5 z-0 match"></span>
-                        <div class="row flex h-1/2 w-full pt-10">
-                            <div class="w-1/3 h-full flex flex-col justify-start items-center">
-                                <span class="mb-5 character text-3xl"></span>
-                                <div class="img-container-1 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
+                        <div class="row flex flex-col justify-center items-center sm:flex-row sm:items-start h-2/3 sm:h-1/2 w-full pt-20 sm:pt-10">
+                            <div class="sm:w-1/3 w-full h-full flex sm:flex-col justify-center sm:justify-start items-center">
+                                <span class="sm:mb-5 character text-xl sm:text-3xl"></span>
+                                <div class="img-container-1 sm:sombra h-24 w-24 sm:h-32 sm:w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
                                     <img class="img-incognito">
                                 </div>
                             </div>
-                            <div class="w-full flex justify-center items-start">
-                                <div class="w-1/2 flex justify-center flex-col items-center">
-                                    <span class="text-3xl">Marcador</span>
-                                    <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
-                                        <span class="marcador text-3xl"></span><span class="text-3xl"> / </span><span class="marcador-2 text-3xl"></span>
+                            <div class="w-full flex flex-col sm:flex-row mt-3 sm:mt-0 justify-center items-start">
+                                <div class="w-full sm:w-1/2 flex justify-around sm:flex-col items-center">
+                                    <div>
+                                        <span class="text-xl sm:text-3xl">Marcador</span>
+                                        <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
+                                            <span class="marcador text-xl sm:text-3xl"></span><span class="text-xl sm:text-3xl"> / </span><span class="marcador-2 text-xl sm:text-3xl"></span>
+                                        </div>
                                     </div>
-                                    <div class="flex flex-col justify-center items-center mt-7">
-                                        <span class="text-2xl">KDA: </span>
-                                        <span class="KDA text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
+                                    <div class="flex flex-col justify-center items-center sm:mt-7">
+                                        <span class="text-xl sm:text-2xl">KDA: </span>
+                                        <span class="KDA text-lg sm:text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
                                     </div>
                                 </div>
-                                <div class="w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
-                                    <span class="map-name mb-5 text-3xl map-text">Mapa</span>
-                                    <img class="map-img-container w-64 sombra" src="" alt="Imagen del mapa">
+                                <div class="w-full sm:w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
+                                    <span class="map-name mt-7 sm:mt-0 sm:mb-5 text-xl sm:text-3xl map-text">Mapa</span>
+                                    <div class="w-auto sm:w-auto max-h-20 sm:max-h-full sm:h-36 bg-red-400">
+                                        <img class="map-img-container object-cover h-full sombra" src="" alt="Imagen del mapa">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex row h-1/2 pt-10">
-                            <div class="bg-inherit rounded-sm w-2/3 h-full flex my-3">
-                                <div class="flex flex-col justify-center w-2/5">
-                                    <span class="ml-7 text-xl pb-3">Danho hecho: </span>
-                                    <span class="ml-7 text-xl pt-3">Danho recivido: </span>
-                                    
+                        <div class="flex w-full sm:flex-row flex-col h-1/3 sm:h-1/2 sm:pt-10 pt-20">
+                            <div class="w-full text-center sm:hidden">
+                                <span>Danho <span class="text-green-600">hecho</span> vs <span class="text-red-600">recivido</span></span>
+                            </div>
+                            <div class="bg-inherit rounded-sm sm:w-2/3 h-full flex my-3">
+                                <div class="hidden sm:flex flex-col justify-center w-1/2">
+                                    <span class="ml-5 text-base lg:text-xl pb-3 w-full">Danho hecho: </span>
+                                    <span class="ml-5 text-base lg:text-xl pt-3 w-full">Danho recivido: </span>
                                 </div>
-                                <div class="flex w-full flex-col justify-center">
-                                    <div class="flex justify-center items-center bg-gradient-to-r h-4 mb-3 from-green-700 to-green-400 w-0 green">
+                                <div class="flex w-full sm:flex-col justify-center">
+                                    <div class="sm:ml-4 lg:ml-3 flex justify-center items-center bg-gradient-to-r h-4 sm:mb-3 from-green-700 to-green-400 w-0 green">
                                         <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
-                                    <div class="flex justify-center items-center bg-gradient-to-r h-4 mt-3 from-red-500 to-red-700 w-0 red">
+                                    <div class="sm:ml-4 lg:ml-3 flex justify-center items-center bg-gradient-to-r h-4 sm:mt-3 from-red-500 to-red-700 w-0 red">
                                         <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mr-5 w-1/3 h-full flex flex-col justify-center items-center">
-                                <span class="text-xl text-center mb-3">Rango</span>
-                                <div class="flex flex-col">
-                                    <img class="img-rango" src="#" alt="">
-                                    <span class="rang-text text-lg mt-1 text-black/20"></span>
+                            <div class="h-[24px] w-[120px] bg-black sm:bg-inherit absolute top-0 right-0 sm:static sm:mr-5 sm:w-1/3 sm:h-full flex sm:flex-col sm:justify-center sm:items-center">
+                                <span class="hidden sm:block text-xl text-center mb-3">Rango</span>
+                                <div class="flex flex-row justify-center items-center w-full sm:flex-col">
+                                    <img class="img-rango w-[17px] mr-2 sm:p-0 sm:w-auto" src="#" alt="">
+                                    <span class="rang-text text-lg sm:mt-1 text-secondary-2 sm:text-black/20"></span>
                                 </div>
                             </div>
                         </div>
@@ -272,56 +313,61 @@
                     <div class="swiper-slide justify-center bg-secondary-2 px-7 py-3 border-double border-4 border-gray-800">
                         <div class="filtro absolute w-full h-full top-0 left-0 z-10"></div>
                         <span class="absolute bg-black top-0 left-0 text-secondary-2 px-5 z-0 match"></span>
-                        <div class="row flex h-1/2 w-full pt-10">
-                            <div class="w-1/3 h-full flex flex-col justify-start items-center">
-                                <span class="mb-5 character text-3xl"></span>
-                                <div class="img-container-1 sombra h-32 w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
+                        <div class="row flex flex-col justify-center items-center sm:flex-row sm:items-start h-2/3 sm:h-1/2 w-full pt-20 sm:pt-10">
+                            <div class="sm:w-1/3 w-full h-full flex sm:flex-col justify-center sm:justify-start items-center">
+                                <span class="sm:mb-5 character text-xl sm:text-3xl"></span>
+                                <div class="img-container-1 sm:sombra h-24 w-24 sm:h-32 sm:w-32 m-2 img-container rounded-lg flex justify-center bg-slate-200">
                                     <img class="img-incognito">
                                 </div>
                             </div>
-                            <div class="w-full flex justify-center items-start">
-                                <div class="w-1/2 flex justify-center flex-col items-center">
-                                    <span class="text-3xl">Marcador</span>
-                                    <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
-                                        <span class="marcador text-3xl"></span><span class="text-3xl"> / </span><span class="marcador-2 text-3xl"></span>
+                            <div class="w-full flex flex-col sm:flex-row mt-3 sm:mt-0 justify-center items-start">
+                                <div class="w-full sm:w-1/2 flex justify-around sm:flex-col items-center">
+                                    <div>
+                                        <span class="text-xl sm:text-3xl">Marcador</span>
+                                        <div class="mt-3 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5">
+                                            <span class="marcador text-xl sm:text-3xl"></span><span class="text-xl sm:text-3xl"> / </span><span class="marcador-2 text-xl sm:text-3xl"></span>
+                                        </div>
                                     </div>
-                                    <div class="flex flex-col justify-center items-center mt-7">
-                                        <span class="text-2xl">KDA: </span>
-                                        <span class="KDA text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
+                                    <div class="flex flex-col justify-center items-center sm:mt-7">
+                                        <span class="text-xl sm:text-2xl">KDA: </span>
+                                        <span class="KDA text-lg sm:text-2xl mt-2 bg-secondary/20 rounded-2xl border-2 border-secondary/60 px-5"></span>
                                     </div>
                                 </div>
-                                <div class="w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
-                                    <span class="map-name mb-5 text-3xl map-text">Mapa</span>
-                                    <img class="map-img-container w-64 sombra" src="" alt="Imagen del mapa">
+                                <div class="w-full sm:w-1/2 p-5 pt-0 flex flex-col justify-center items-center">
+                                    <span class="map-name mt-7 sm:mt-0 sm:mb-5 text-xl sm:text-3xl map-text">Mapa</span>
+                                    <div class="w-auto sm:w-auto max-h-20 sm:max-h-full sm:h-36 bg-red-400">
+                                        <img class="map-img-container object-cover h-full sombra" src="" alt="Imagen del mapa">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex row h-1/2 pt-10">
-                            <div class="bg-inherit rounded-sm w-2/3 h-full flex my-3">
-                                <div class="flex flex-col justify-center w-2/5">
-                                    <span class="ml-7 text-xl pb-3">Danho hecho: </span>
-                                    <span class="ml-7 text-xl pt-3">Danho recivido: </span>
-                                    
+                        <div class="flex w-full sm:flex-row flex-col h-1/3 sm:h-1/2 sm:pt-10 pt-20">
+                            <div class="w-full text-center sm:hidden">
+                                <span>Danho <span class="text-green-600">hecho</span> vs <span class="text-red-600">recivido</span></span>
+                            </div>
+                            <div class="bg-inherit rounded-sm sm:w-2/3 h-full flex my-3">
+                                <div class="hidden sm:flex flex-col justify-center w-1/2">
+                                    <span class="ml-5 text-base lg:text-xl pb-3 w-full">Danho hecho: </span>
+                                    <span class="ml-5 text-base lg:text-xl pt-3 w-full">Danho recivido: </span>
                                 </div>
-                                <div class="flex w-full flex-col justify-center">
-                                    <div class="flex justify-center items-center bg-gradient-to-r h-4 mb-3 from-green-700 to-green-400 w-0 green">
+                                <div class="flex w-full sm:flex-col justify-center">
+                                    <div class="sm:ml-4 lg:ml-3 flex justify-center items-center bg-gradient-to-r h-4 sm:mb-3 from-green-700 to-green-400 w-0 green">
                                         <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
-                                    <div class="flex justify-center items-center bg-gradient-to-r h-4 mt-3 from-red-500 to-red-700 w-0 red">
+                                    <div class="sm:ml-4 lg:ml-3 flex justify-center items-center bg-gradient-to-r h-4 sm:mt-3 from-red-500 to-red-700 w-0 red">
                                         <span class="porcentaje text-xl text-secondary-2"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mr-5 w-1/3 h-full flex flex-col justify-center items-center">
-                                <span class="text-xl text-center mb-3">Rango</span>
-                                <div class="flex flex-col">
-                                    <img class="img-rango" src="#" alt="">
-                                    <span class="rang-text text-lg mt-1 text-black/20"></span>
+                            <div class="h-[24px] w-[120px] bg-black sm:bg-inherit absolute top-0 right-0 sm:static sm:mr-5 sm:w-1/3 sm:h-full flex sm:flex-col sm:justify-center sm:items-center">
+                                <span class="hidden sm:block text-xl text-center mb-3">Rango</span>
+                                <div class="flex flex-row justify-center items-center w-full sm:flex-col">
+                                    <img class="img-rango w-[17px] mr-2 sm:p-0 sm:w-auto" src="#" alt="">
+                                    <span class="rang-text text-lg sm:mt-1 text-secondary-2 sm:text-black/20"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
@@ -357,5 +403,6 @@
 <script src="animation.js"></script>
 <script src="app.js" type="module"></script>
 <script src="anime.js" type="module"></script>
+<script src="menu.js" type="module"></script>
 <script src="swiper.js"></script>
 </html>     
